@@ -5,29 +5,33 @@ import java.util.Map;
 
 public abstract class APIResponse {
 
-	protected String				status;
-	protected Map< String, Object >	data;
+    protected String status;
+    protected Map< String, Object> data;
 
-	protected String _getString( String name ) {
-		return data.get( name ).toString( );
-	}
+    protected String _getString(String name) {
+        return data.get(name).toString();
+    }
 
-	protected BigDecimal _getNumber( String name ) {
-		return new BigDecimal( data.get( name ).toString( ) );
-	}
+    protected BigDecimal _getNumber(String name) {
+        return new BigDecimal(data.get(name).toString());
+    }
 
-	protected Integer _getInteger( String name ) {
-		return new Integer( data.get( name ).toString( ) );
-	}
+    protected Integer _getInteger(String name) {
+        return new Integer(data.get(name).toString());
+    }
+    
+    protected Boolean _getBoolean(String name) {
+        return "true".equalsIgnoreCase(data.get(name).toString());
+    }
 
-	public abstract String getMethodName( );
+    public abstract String getMethodName();
 
-	public String getStatus( ) {
-		return status;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public String getNetwork( ) {
-		return _getString( "network" );
-	}
+    public String getNetwork() {
+        return _getString("network");
+    }
 
 }

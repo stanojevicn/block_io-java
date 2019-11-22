@@ -1,22 +1,20 @@
 package io.block.responses;
 
-import java.math.BigDecimal;
-
 import io.block.APIResponse;
 
-public class BalanceInfo extends APIResponse {
+public class WithdrawFromAddresses extends APIResponse {
 
-	@Override
-	public String getMethodName( ) {
-		return "get_balance";
-	}
+    @Override
+    public String getMethodName() {
+        return "withdraw_from_addresses";
+    }
 
-	public BigDecimal getAvailableBalance( ) {
-		return _getNumber( "available_balance" );
-	}
+    public String getReferenceId() {
+        return _getString("reference_id");
+    }
 
-	public BigDecimal getPendingReceivedBalance( ) {
-		return _getNumber( "pending_received_balance" );
-	}
+    public boolean getMoreSignaturesNeeded() {
+        return _getBoolean("more_signatures_needed");
+    }
 
 }
